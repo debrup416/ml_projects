@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        {% for k,v in feilds %}
+           <p>{{ k }}: {{ v }}</p>
+        {% endfor %}
+    </div>
+
+    {% if ans == 1 %}
+        <h1>Great....Water is Purified</h1>
+    {% elif ans == 0 %}
+        <h1>Oops....Need to Purified</h1>
+    {% else %}
+        <h1>Awwhh....Something error happen</h1>
+    {% endif %}
+   
+{% endblock %}
+
