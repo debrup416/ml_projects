@@ -22,7 +22,7 @@ def result(request):
         test_data.append(temp)
         print(test_data)
 
-        water=joblib.load("water_quality/WATER.pkl")
+        water=joblib.load("water_quality/static/WATER.pkl")
         prediction=water[6].predict(test_data)
         del dict['csrfmiddlewaretoken']
 
