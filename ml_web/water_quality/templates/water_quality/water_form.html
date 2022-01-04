@@ -4,7 +4,7 @@
 
 <h3> Water Quality Project Form</h3>
 <div  class="container">
-    <form action="{% url 'result' %}" method="POST">
+    <form  method="POST">
         {% csrf_token %}
         {{form.as_p}}
     
@@ -15,7 +15,11 @@
         <input type="submit">
        
     </form>
-   
+    {% if ans == 1 %}
+        <h1>Great....Water is Purified</h1>
+    {% elif ans == 0 %}
+        <h1>Oops....Need to Purified</h1>
+    {% endif %}
 </div>
 
 

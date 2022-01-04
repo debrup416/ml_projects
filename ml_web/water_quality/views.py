@@ -8,8 +8,10 @@ import joblib
 # Create your views here.
 
 
-def result(request):
+
+def getDataAndPredict(request):
     if request.method=='POST':
+        form=WaterForm(request.POST)
         temp=[]
         dict={}
         for x in request.POST:
@@ -25,22 +27,17 @@ def result(request):
         water=joblib.load("water_quality/static/WATER.pkl")
         prediction=water[6].predict(test_data)
         del dict['csrfmiddlewaretoken']
+        prediction=water[6].predict(test_data)
+        return render(request,'water_quality/water_form.html',{'form':form ,'ans':prediction[0]})
 
         print(dict)
+    else:
+        form=WaterForm()
          
-        context={'feilds':dict.items() ,'ans':prediction[0]}
-
-
-    return render(request,'water_quality/result.html',context)
-
-     
-
-
-
-def getData(request):
-    form=WaterForm()
+    context={'form':form }
+    
         
-
-    context={'form':form}
     return render(request,'water_quality/water_form.html',context)
+
+
 
