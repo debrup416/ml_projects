@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'water_quality.apps.WaterQualityConfig',
-    'ui.apps.UiConfig'
+    'ui.apps.UiConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [

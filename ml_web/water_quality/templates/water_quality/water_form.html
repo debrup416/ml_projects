@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 
-<h3> Water Quality Project Form</h3>
+
 <div  class="container">
     <form  method="POST">
         {% csrf_token %}
-        {{form.as_p}}
+        <fieldset class="form-group">
+            <legend class="border-botton">Water Quality Project Form </legend>
+            {{ form|crispy }}
+        </fieldset>
     
         <!-- {% for field in form %}
             {{field.label}}
