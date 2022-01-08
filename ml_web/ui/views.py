@@ -30,7 +30,14 @@ def register(request):
 
 
 def profile(request):
-    
+   
+    return render(request, 'ui/profile.html')
+
+
+def profile_edit(request):
+
+    page='edit'
+   
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
         p_form = ProfileUpdateForm(request.POST,
@@ -48,8 +55,20 @@ def profile(request):
 
     context = {
         'u_form': u_form,
-        'p_form': p_form
+        'p_form': p_form,
+        'page':page
     }
      
 
     return render(request, 'ui/profile.html',context)
+
+
+
+
+
+
+
+
+
+
+
